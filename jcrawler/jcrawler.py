@@ -3,7 +3,7 @@ import bot
 
 
 def main():
-    crawler = bot.bot.Bot('http://yahoo.com')
+    crawler = bot.bot.Bot('http://andjerry.com')
     crawler.run()
 
 
