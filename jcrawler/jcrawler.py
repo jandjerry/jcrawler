@@ -1,8 +1,9 @@
 import bot
 
+
+
 def main():
-    url = bot.url.Url('http://yahoo.com');
-    crawler = bot.bot.Bot(url)
+    crawler = bot.bot.Bot('http://yahoo.com')
     crawler.run()
 
 
