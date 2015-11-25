@@ -1,12 +1,9 @@
 import bot
 
-
-bot = bot.Bot('http://yahoo.com', 1)
-bot.download('http://andjerry.com')
-
-
 def main():
-    print("Main function");
+    url = bot.url.Url('http://yahoo.com');
+    crawler = bot.bot.Bot(url)
+    crawler.run()
 
 
 if __name__ == "__main__":

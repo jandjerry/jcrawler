@@ -4,14 +4,14 @@ import urllib2
 class Bot():
 
     """ Constructor """
-    def __init__(self, url, depth):
+    def __init__(self, url, depth=None):
         self.url = url
         self.depth = depth;
 
     """ This will be the function recursive and multi-threaded 
         Will be passed a filter array contains regex filters for url and content
     """
-    def crawl(self, filters=[]):
+    def run(self, url_filters=[], content_filters=[]):
         print("Crawling....")
 
     """ Download the url content """
@@ -19,8 +19,12 @@ class Bot():
         content = urllib2.urlopen(url).read()
         print(content)
         
-    """ Validate current url and content by filters TODO"""
-    def validate(self, filters=[]):
+    """ Validate current url  by filters TODO"""
+    def url_validate(self, filters=[]):
         return true 
+
+    """ Validate current content by filters TODO """
+    def content_validate(self, filters=[]):
+        return true
 
 
