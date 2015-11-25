@@ -20,12 +20,12 @@ class Bot(object):
         Will be passed a filter array contains regex filters for url and content
     """
     def run(self, url_filters=[], content_filters=[]): 
-        c = self.download(self.url)
+        c = self.download(self.url, url_filters, content_filters)
         if isinstance(c, content.Content): 
             Parser.parse(c)
             if self.depth > 0 or self.depth == None :
                 for link in c.alinks :
-                    if link not in Bot.processed_links: 
+                    if link not in Bot.processed_links:
                         crawler = Bot(link)
                         crawler.depth = self.depth
 
@@ -35,8 +35,11 @@ class Bot(object):
                         crawler.run()
 
     """ Download the url content and return content object """
-    def download(self, url):
+    def download(self, url, url_filters=[], content_filters=[] ):
         if url == None or url == "": 
+            return None
+
+        if self.url_validate(url, url_filters) == False :
             return None
 
         print("----> [URL]Processing " + url)
@@ -69,13 +72,14 @@ class Bot(object):
 
 
     """ Validate current url  by filters TODO"""
-    def url_validate(self, filters=[]):
-        return true 
+    def url_validate(self, url, filters=[]):
+        print(url)
+        return False
 
 
 
     """ Validate current content by filters TODO """
-    def content_validate(self, filters=[]):
+    def content_validate(self, url, filters=[]):
         return true
 
 
